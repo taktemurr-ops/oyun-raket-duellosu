@@ -5,7 +5,6 @@ import 'package:arcade_motoru/pong.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const raketId = 'oyun-raket-duellosu';
 
@@ -88,7 +87,7 @@ final raketConfig = GameConfig(
   rules: raketRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => raketRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => raketRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintPong(c, s, p, t);
